@@ -324,7 +324,7 @@ expect(obj.do).not.toHaveBeenCalled();
 
 | 名稱   | 功能  | 範例 |
 | ------| ------ | ------ |
-| **withArgs** | 可指定傳入的參數，做不同的事情 |  spyOn(obj, 'getData').withArgs('a').and.returnValue('aa').withArgs('b').and.returnValue('bb'); |
+| **withArgs** | 可指定傳入的參數，做不同的事情 |  spyOn(obj, 'getData').withArgs('a').and.returnValue('aa'); |
 
 `示範`
 
@@ -493,3 +493,34 @@ describe('clock範例', () => {
 
 });
 ```
+
+## Done
+
+| 名稱   | 功能  | 範例 |
+| ------| ------ | ------ |
+| **done** | 等異步有反應後，通知執行驗證 | done() |
+
+`示範`
+
+```alias
+it('示範測試異步程式碼', (done) => {
+
+  let a = 0;
+
+  setTimeout(() => {
+
+    a = 100;
+
+    expect(a).toBe(100);
+
+    done(); // 等待callback後，通知驗證 (非快轉，真的等3秒)
+
+  }, 3000);
+
+  expect(a).toBe(0);
+
+});
+```
+
+> 使用 **done()** 是會等 callback 時間的 ， 所以要注意 每個 spec (it) 預設等待驗證時間為 5s，超過的話，spec 還是報錯.  
+> 若要 調整 spec 的 驗證時間，可以使用 **jasmine.DEFAULT_TIMEOUT_INTERVAL** 去修改 spec 等待驗證 的 時間.
