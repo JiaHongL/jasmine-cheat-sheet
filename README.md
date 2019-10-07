@@ -43,7 +43,7 @@ describe('登入頁功能', () => {
 })
 ```
 
-`範例三 (使用 f (focus)，執行特定的 describe 與 it )`
+`範例三 (使用 f (focus)，執行特定的 describe 與 it)`
 
 ```alias
 describe('登入頁功能', () => {      // 不執行
@@ -67,7 +67,7 @@ fdescribe('登入成功後', () => {    // 執行
 })
 ```
 
-`範例三 (使用 x ，跳過特定的 describe 與 it )`
+`範例三 (使用 x ，跳過特定的 describe 與 it)`
 
 ```alias
 xdescribe('登入頁功能', () => {      // 不執行
@@ -81,6 +81,30 @@ xdescribe('登入頁功能', () => {      // 不執行
 describe('登入成功後', () => {    // 執行
 
   xit('應儲存使用者資料', () => {    // 不執行
+    expect something...
+  })
+
+  it('應該跳轉到系統頁', () => {  // 執行
+    expect something...
+  })
+
+})
+```
+
+`範例四 (xdescribe 遇到 fit 時)`
+
+```alias
+xdescribe('登入頁功能', () => {      // 不執行
+
+  it('應該檢核帳密輸入', () => {     // 不執行
+    expect something...
+  })
+
+})
+
+xdescribe('登入成功後', () => {    // 因為fit的關係，所也會執行
+
+  fit('應儲存使用者資料', () => {    // 還是會執行!
     expect something...
   })
 
