@@ -227,7 +227,7 @@ fdescribe('示範', () => {
 | jasmine.createSpy | 原本就有obj， 但不管有無 method，都可以幫建立一個 spy 的 method | jasmine.createSpy( baseName , originalFn )|
 | jasmine.createSpyObj | 原本就沒有obj ，幫建立一個 obj 和 n 個 spy 的 method | jasmine.createSpyObj( ObjName , methodNames) |
 | spyOnProperty | spy obj 的 getter 或 setter method | spyOnProperty( obj , 'propertyName' , 'get' / 'set' ) |
-|spyOnAllFunctions| spy obj 全部的 method | spyOnAllFunctions(obj) |
+| spyOnAllFunctions | spy obj 全部的 method | spyOnAllFunctions(obj) |
 
 `spyOn`
 
@@ -294,6 +294,30 @@ obj.say();
 
 expect(obj.say).toHaveBeenCalled();
 expect(obj.do).not.toHaveBeenCalled();
+```
+
+## Spy.withArgs
+
+| 名稱   | 功能  | 範例 |
+| ------| ------ | ------ |
+| withArgs | 可指定傳入的參數，做不同的事情 |  spyOn(obj, 'getData').withArgs('a').and.returnValue('aa').withArgs('b').and.returnValue('bb'); |
+
+`示範`
+
+```alias
+const mockData = 'bbbb';
+const mockData2 = 'cccc';
+
+const obj = {
+  getData: (key) => 'aaaa'
+};
+
+spyOn(obj, 'getData')
+  .withArgs('b').and.returnValue(mockData)
+  .withArgs('c').and.returnValue(mockData2);
+
+expect(obj.getData('b')).toBe(mockData);
+expect(obj.getData('c')).toBe(mockData2);
 ```
 
 ## Spy.and
