@@ -204,44 +204,44 @@ fdescribe('示範', () => {
 | **toThrowMatching** | 預期丟出指定錯誤值  | expect(() => { throw new Error('nope'); }).toThrowMatching((thrown) =>  thrown.message === 'nope');  |
 | **withContext** | 當 matcher fails 時，顯示的訊息 (終端機) | expect(aSpy).withContext(' a函式 應該被呼叫!!').toHaveBeenCalled();  |
 | **jasmine.any** | 是否為特定 class / construct 的 instance | class Dog {}; class Cat {}; |
-|  | 需搭配相關等於的matcher | const myDog = new Dog(); |
+|  | 需搭配matcher | const myDog = new Dog(); |
 |  |  | expect(myDog).toEqual(jasmine.any(Dog));|
 |  | | expect(myDog).not.toEqual(jasmine.any(Cat));|
 | **jasmine.anything** | 比對 非 undefined 或 null 的值 | expect('').toEqual(jasmine.anything()); |
-|  | 需搭配相關等於的matcher | expect(undefined).not.toEqual(jasmine.anything()); |
+|  | 需搭配部分的matcher | expect(undefined).not.toEqual(jasmine.anything()); |
 |  |  | expect(null).not.toEqual(jasmine.anything());|
 | **jasmine.truthy** | 比對 為 true / truthy 的值 | expect(true).toEqual(jasmine.truthy()); |
-| | 需搭配相關等於的matcher | expect({}).toEqual(jasmine.truthy()); |
+| | 需搭配部分的matcher | expect({}).toEqual(jasmine.truthy()); |
 | |  | expect(1).toEqual(jasmine.truthy()); |
 | **jasmine.falsy** | 比對 為 false / falsy 的值 | expect(false).toEqual(jasmine.falsy()); |
-| | 需搭配相關等於的matcher | expect('').toEqual(jasmine.falsy()); |
+| | 需搭配部分的matcher | expect('').toEqual(jasmine.falsy()); |
 | |  | expect(0).toEqual(jasmine.falsy()); |
 | **jasmine.empty** | 比對為空的值| expect('').toEqual(jasmine.empty()); |
-|| 需搭配相關等於的matcher | expect({}).toEqual(jasmine.empty());|
+|| 需搭配部分的matcher | expect({}).toEqual(jasmine.empty());|
 ||  | expect([]).toEqual(jasmine.empty()); |
 | **jasmine.notEmpty** | 比對 非空的值 | expect('a').toEqual(jasmine.notEmpty()); |
-|| 需搭配相關等於的matcher | expect({ a: '1' }).toEqual(jasmine.notEmpty()); |
+|| 需搭配部分的matcher | expect({ a: '1' }).toEqual(jasmine.notEmpty()); |
 ||  | expect(['a']).toEqual(jasmine.notEmpty()); |
 | **jasmine.arrayContaining(sample)** | 是否為包在陣列的項目 | expect([1, 2, 5, 6]).toEqual(jasmine.arrayContaining([2, 6])); |
-| | 需搭配相關等於的matcher | expect([{ a: '1' }, { b: '2' }]).toEqual(jasmine.arrayContaining([{ a: '1' }])); |
+| | 需搭配部分的matcher | expect([{ a: '1' }, { b: '2' }]).toEqual(jasmine.arrayContaining([{ a: '1' }])); |
 | |  | expect([1, 3, 5]).not.toEqual(jasmine.arrayContaining([2])); |
 | **jasmine.arrayWithExactContents(sample)** | 是否為包在陣列的全部項目(不管順序) | expect([1, 2, 3]).toEqual(jasmine.arrayWithExactContents([3, 2, 1])); |
-| | 需搭配相關等於的matcher | expect([1, 2, 3]).not.toEqual(jasmine.arrayWithExactContents([1, 2])); |
+| | 需搭配部分的matcher | expect([1, 2, 3]).not.toEqual(jasmine.arrayWithExactContents([1, 2])); |
 | |  | expect([{ a: '1' }, { b: '2' }]).toEqual(jasmine.arrayWithExactContents([{ b: '2' }, { a: '1' }])); |
 | **jasmine.mapContaining(sample)** | 是否包含在 Map 裡 的 Key/value | const map = new Map([['a', 'a1'], ['b', 'b2'], ['c', 'c3']]); |
-| | 需搭配相關等於的matcher | const map2 = new Map([['b', 'b2'], ['c', 'c3']]); |
+| | 需搭配部分的matcher | const map2 = new Map([['b', 'b2'], ['c', 'c3']]); |
 | |  | expect(map).toEqual((jasmine as any).mapContaining(map2)); |
 | **jasmine.objectContaining(sample)** | 是否包含在 Object 裡 的 Key/value | const obj = { a: '1', b: '2', c: '3' }; |
-| | 需搭配相關等於的matcher | const obj2 = { b: '2', c: '3' }; |
+| | 需搭配部分的matcher | const obj2 = { b: '2', c: '3' }; |
 | |  | expect(obj).toEqual(jasmine.objectContaining(obj2)); |
 | **jasmine.stringMatching(sample)** | 是否包含字串裡的某些文字| const str = 'hi my name is joe'; |
-| | 需搭配相關等於的matcher | const str2 = 'my name'; |
+| | 需搭配部分的matcher | const str2 = 'my name'; |
 | |  | expect(str).toEqual(jasmine.stringMatching(str2)); |
 | **jasmine.setContaining(sample)** | 是否包含在 Set 裡 的 Key | const set = new Set([1, 2, 3, 4, 5]); |
-| | 需搭配相關等於的matcher | const set2 = new Set([3, 4, 5]); |
+| | 需搭配部分的matcher | const set2 = new Set([3, 4, 5]); |
 | |  | expect(set).toEqual((jasmine as any).setContaining(set2)); |
 
-> 需搭配相關等於的 Matcher (e.g. toEqual, toContain, toHaveBeenCalledWith)
+> 需搭配部分的 Matcher (e.g. toEqual, toContain, toHaveBeenCalledWith)
 
 ## Spies
 
