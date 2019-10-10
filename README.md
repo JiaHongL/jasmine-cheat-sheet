@@ -245,7 +245,7 @@ fdescribe('示範', () => {
 
 ## Spies
 
-| 名稱   | 參數  | 用法  |
+| 名稱   | 參數  | 語法 |
 | ------| ------ |  ------ |
 | **spyOn** | 原本就有obj，也有method，直接 spy obj 的 method | spyOn(obj , 'methodName') |
 | **jasmine.createSpy** | 原本就有obj， 但不管有無 method，都可以幫建立一個 spy 的 method | jasmine.createSpy( baseName , originalFn )|
