@@ -430,8 +430,8 @@ console.log(mySpy.calls.mostRecent());
 // {
 //  object:{say: function (a,b) { ... }},
 //  invocationOrder: 0,
-//  args: ['Joe', 'front end engineer'],
-//  returnValue: 'Joe is a front end engineer'
+//  args: ['Abel', 'backend engineer'],
+//  returnValue: 'Abel is a backend engineer'
 // }
 ```
 
