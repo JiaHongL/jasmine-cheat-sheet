@@ -119,7 +119,7 @@ xdescribe('登入成功後', () => {    // 因為fit的關係，所也會執行
 
 | 名稱 | 功能說明 |
 | ------| ------ |
-| **beforeEach**| describe 執行後，it 被執行前，執行 beforeEach |
+| **beforeEach**| describe 執行後，每個 it 被執行前，執行 beforeEach |
 | **afterEach** | 每個 it 執行後，執行 afterEach |
 | **beforeAll**| describe 執行後，it 被執行前，調用 beforeEach (只執行一次)) |
 | **afterAll** | 全部 it 執行後，調用 afterAll |
